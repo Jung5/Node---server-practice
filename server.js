@@ -2,7 +2,6 @@ const express = require("express");
 const bodyParser = require("body-parser");
 
 const app = express();
-
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/", function(req, res, next){
@@ -10,7 +9,12 @@ app.get("/", function(req, res, next){
 })
 
 app.post("/", function(req, res, next){
-    res.send("thanks for posting that")
+    let num1 = Number(req.body.num1);
+    let num2 = Number(req.body.num2);
+
+    let result = num1 + num2;
+
+    res.send("The result of the calculation is " + result)
 })
 
 
